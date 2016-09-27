@@ -1,0 +1,5 @@
+<resources>
+    <string name="ToDo">ToDo</string>
+    <string name="titulo_do_todo">Título do Todo</string>
+    <string name="x">X</string>
+</resources>
