@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/ToDo"
+        android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".view.MainActivity">
@@ -15,6 +15,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".view.DetalheTodo"
+            android:parentActivityName=".view.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.MainActivity" />
+        </activity>
+
+        <activity android:name=".view.ItemActivity"
+            android:parentActivityName=".view.DetalheTodo">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.DetalheTodo" />
+        </activity>
+
     </application>
 
 </manifest>

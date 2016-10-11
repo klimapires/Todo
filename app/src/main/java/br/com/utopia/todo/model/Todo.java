@@ -19,6 +19,10 @@ public class Todo {
         this.titulo = titulo;
     }
 
+    public Todo() {
+
+    }
+
     public Long getId() {
         return id;
     }

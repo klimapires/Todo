@@ -6,7 +6,7 @@ import java.util.List;
  * Created by Kleber on 24/09/2016.
  */
 
-public class ItemDao {
+public class ItemDao implements Dao{
     private static ItemDao instace;
     private List<Item> lista;
     private static long id = 0;
@@ -15,13 +15,13 @@ public class ItemDao {
         this.lista = lista;
     }
 
-    public static ItemDao getInstace(List<Item> lista){
+    public static ItemDao getInstance(List<Item> lista){
         ItemDao dao = new ItemDao(lista);
         ItemDao.instace = dao;
         return dao;
     }
 
-    public static ItemDao getInstace(){
+    public static ItemDao getInstance(){
         return instace;
     }
 
@@ -37,7 +37,7 @@ public class ItemDao {
         }
     }
 
-    private Item localizar(long id) {
+    public Item localizar(long id) {
         Item item = null;
 
         for(Item obj : lista){
@@ -59,5 +59,4 @@ public class ItemDao {
         if(item != null)
             lista.remove(item);
     }
-
 }

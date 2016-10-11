@@ -1,12 +1,7 @@
 package br.com.utopia.todo.view;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -14,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
 import br.com.utopia.todo.R;
 import br.com.utopia.todo.model.Todo;
 import br.com.utopia.todo.model.TodoDao;
@@ -102,34 +98,7 @@ public class TodoAdapter extends BaseAdapter implements View.OnClickListener {
         Alerta alerta = new Alerta();
         alerta.setId(id);
         alerta.setAdapter(this);
+        alerta.setDao(dao);
         alerta.show(activity.getFragmentManager(), "Alerta");
-    }
-
-    public static class Alerta extends DialogFragment implements
-            DialogInterface.OnClickListener{
-        private long id;
-        private BaseAdapter adapter;
-
-        public void setId(long id) {
-            this.id = id;
-        }
-
-        public void setAdapter(BaseAdapter adapter) {
-            this.adapter = adapter;
-        }
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState){
-            AlertDialog.Builder tela = new AlertDialog.Builder(getActivity());
-            tela.setMessage("Confirma a exclusão do Todo?");
-            tela.setPositiveButton("Sim", this);
-            return tela.create();
-        }
-
-        @Override
-        public void onClick(DialogInterface dialog, int which){
-            dao.remover(id);
-            adapter.notifyDataSetChanged();
-        }
     }
 }

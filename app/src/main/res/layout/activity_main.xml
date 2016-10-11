@@ -13,6 +13,20 @@
     tools:context="br.com.utopia.todo.view.MainActivity"
     tools:ignore="MissingConstraints" >
 
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:id="@+id/fab"
+        app:layout_constraintBottom_toBottomOf="@+id/tabhost"
+        app:layout_constraintRight_toRightOf="@+id/tabhost"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:elevation="9dp"
+        app:backgroundTint="@color/colorPrimary" />
+
     <TabHost
         android:id="@+id/tabhost"
         android:layout_width="0dp"
@@ -39,11 +53,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-               <include layout="@layout/afazer_layout"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent" />
+                <include layout="@layout/afazer_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-               <include layout="@layout/concluido_layout"
+                <include layout="@layout/concluido_layout"
                    android:layout_width="match_parent"
                    android:layout_height="match_parent" />
 
